@@ -7,12 +7,12 @@ $(function() {
 
   $(window).on('resize', function() {
     if($(window).width() < 1600){
-      $('.navbtn').bind('touchstart mousedown', function(){
+      $('.navbtn').on('click', function(){
         $(this).toggleClass('open');
         $('nav').toggleClass('openMenu');
       });
 
-      $('nav a').bind('touchstart mousedown', function(){
+      $('nav a').on('click', function(){
           $('.navbtn').toggleClass('open');
           $('nav').toggleClass('openMenu');
       });
