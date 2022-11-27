@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Web Accessibility Design Tips</title>
+
+        <!--fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600&display=swap" rel="stylesheet">
+
+        <!--jquery-->
+        <link rel="stylesheet" href="jquery-ui-1.13.2.custom\jquery-ui.css">
+        <script src="jquery-ui-1.13.2.custom\external\jquery\jquery.js"></script>
+        <script src="jquery-ui-1.13.2.custom\jquery-ui.js"></script>
+
+        <!--my content-->
+        <link rel="stylesheet" href="styles.css">
+        <script src="scripts.js" async></script>
+
+    </head>
+    <body>
+        <a class="sr-only" href="#main">Jump to main content</a>
+        <header>
+            <h1><a href="index.html">Web Accessibility Design Tips</a></h1>
+            <div class="navbtn">
+                <div class="icon"></div>
+            </div>
+        </header>
+        <nav>
+            <a href="#abtAnchor">About</a>
+            <a href="#imgAnchor">Images and Multimedia</a>
+            <a href="#colorAnchor">Colors and Contrast</a>
+            <a href="#fontAnchor">Fonts</a>
+            <a href="#layoutAnchor">Layout</a>
+            <a href="#markupAnchor">HTML and Content Markup</a>
+            <a href="#extraAnchor">Extra Tips</a>
+        </nav>
+        <main id="main">
+            <section id="about">
+                <h2 class="anchor">About<span id="abtAnchor"></span></h2>
+                <p>Accessibility is a very important topic in web design, but not everyone knows about it. Especially if you're new to web design, or have never had any formal training, you may not know there is a need to design with accessibility in mind. Disabilities such as vision impairments can make it difficult for users to view and read your website content, and physical impairments can make it difficult for a user to navigate your website using a keyboard and mouse. Even if you're not disabled, inaccessible web design can affect you. For example, a button too small to hit on a mobile page can affect anyone.</p>
+                <p>I created this website to briefly compile tips and resources about accessible web design. If you have your own website, want to make your own website, or want to learn more about the topic, read on!</p>
+                <p>Want to know if your website is accessible? I recommend running a google lighthouse audit for accessibility. They test for quite a few things, including things I don't cover here, such as ARIA specifications to help with screen readers. You can <a href="https://developer.chrome.com/docs/lighthouse/accessibility/">find out more about lighthouse on google's website here.</a></p>
+            </section>
+            <div id="tips">
+                <section id="multimedia">
+                    <h2 class="anchor">Images and Other Media<span id="imgAnchor"></span></h2>
+                    <section>
+                        <h3>Image Alt. Text</h3>
+                        <p>Many blind or vision-impaired people use screen-reading programs to help them navigate the web. These programs are actually pretty powerful - they look at your website's HTML to help interpret your webpage's content for the user. However, they're not omnipotent. Even the strongest AI's can struggle to interpret image contents, and most screen readers don't use A.I. technology. Therefore, you should always provide alt text for images on your website.</p>
+                        <p>On desktop, hovering over an image will show the alt text. On most mobile browsers, you can press and hold on an image to show alt text. Screen readers will read any alt text aloud when they reach the image.</p>
+                        <div class="container">
+                            <img src = "content/pineapple.jpg
+                            " alt="A pineapple with a pair of sunglasses placed on it">
+                            <p>Photo by <a href="https://www.pexels.com/photo/green-pineapple-fruit-with-brown-framed-sunglasses-beside-yellow-surface-1161547/">Lisa Fotios</a></p>
+                            <p>If you hover on desktop (or press and hold on mobile), you can see this image's alt text!</p>
+                        </div>
+                        <p>There's no singular “correct” way to write image alt text. There are many ways you can describe a person, after all. However, there are some standards you should stick to for alt text. Other articles go more in depth, such as <a href ="https://webaim.org/techniques/alttext/">this article from webaim</a> and <a href="https://support.microsoft.com/en-us/office/everything-you-need-to-know-to-write-effective-alt-text-df98f884-ca3d-456c-807b-1a1fa82f5dc2">this article from microsoft.</a> However, here are a few quick tips</p>
+                        <ul>
+                            <li>Avoid using “This is a photo of…”, “This is an image of…”, etc. Most screen readers will say that an image is an image before reading the alt text</li>
+                            <li>Try to be descriptive, but not long. Usually a sentence or two will suffice - “A woman is holding a cup of coffee” is better than “A woman”, but there's no need to describe irrelevant background elements.</li>
+                            <li>There's no need to use alt text on purely decorative elements, such as a background image or decorative border.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Video and Audio Transcripts</h3>
+                        <p>Like how vision impaired people may be unable to view an image, those who are hearing impaired may be unable to listen to a video's audio, and any other audio elements on your page. Even if they're not disabled, someone may access your website in an environment where they can't listen to audio, such as a crowded bus or train when they don't have headphones. If your video doesn't have closed captions, I recommend adding a video transcript.</p>
+                        <p>This applies to audio elements as well. Not all videos will have important audio elements, but if you post a video update on a blog, having that information you talk about available in a text format will help users who can't listen to the video. </p>
+                        <p>You can also provide information about visual cues in this transcript, which could potentially help a vision-impaired user who can't see what happens in the video.</p>
+                        <div class="container">
+                            <p>Here is an example of a video and a transcript. <a href="https://youtu.be/vWMf5rYDgpc">Courtesy of Nasa</a></p>
+                            <video controls>
+                                <source src="content/nasa_video.mp4" type="video/mp4">
+                                <track src="content/nasa_video_subs.vtt" kind="captions" srclang="en" label="English">
+                            </video>
+                            <section id="transcript">
+                                <h4>Video Transcript</h4>
+                                <div>
+                                    <p>Music plays throughout the video</p>
+                                    <p>00:05: Trace a piece of paper to fit along the bottom</p>
+                                    <p>00:12: Tape the paper inside the box and seal the top.</p>
+                                    <p>00:20: Cut rectangular holes on the left and right of the top.</p>
+                                    <p>00:24: Cut a piece of aluminum foil to cover the left hole. Tape in place.</p>
+                                    <p>00:29: Poke a pinhole in the center of the foil.</p>
+                                    <p>00:37: With the sun behind you, look into the right hole.</p>
+                                    <p>00:40: Watch a projection of the eclipsed sun on the paper inside the box.</p>
+                                    <p>00:49: Happy eclipse viewing! Learn more at <a href="https://eclipse2017.nasa.gov">eclipse2017.nasa.gov</a></p>
+                                </section>
+                        </div>
+                        <p>Unsure of where to start with a video or audio transcript? <a href="https://www.w3.org/WAI/media/av/transcripts/">W3.org has a good guide to help you write transcripts.</a> There's quite a bit to it, but the short of it is to transcribe the audio, add relevant information (such as speaker names, if more than one person is present), and add any important visual cues (such as on screen text).</p>
+                    </section>
+                </section>
+                <section id="contrast">
+                    <h2 class="anchor">Colors and Contrast<span id="colorAnchor"></span></h2>
+                    <section>
+                        <h3>Test your webpage using different color modes</h3>
+                        <p>Many users prefer to browse the web in “dark” or “night time” mode. Most modern browsers and operating systems have this  feature built in - they will automatically load a website's specified dark mode, or if one isn't available, it will invert your webpage colors automatically. It can be useful to test your website using these settings - what may be readable on light mode may not be on dark mode, and you might not know it. Want to make a custom dark mode? I recommend looking at <a href="https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/">this guide from css-tricks.</a> They provide multiple methods to make this work, whether with pure css or javascript.</p>
+                        <div class="container">
+                            <img src="content/light-mode-vs-dark-mode.webp" alt="Two phones sitting next to eachother. One is in light mode, the other is in dark mode.">
+                            <p>Image Courtesy of <a href="https://www.fonehouse.co.uk/blog/dark-mode-vs-light-mode/">fonehouse</a></p>
+                        </div>
+                    </section>
+                    <section>
+                        <h3>Color Contrast</h3>
+                        <p>When designing a website, you should always keep in mind the colors you use. If your text color isn't contrasting enough from the background color, some users may not be able to read the information on your website. This can be due to a variety of reasons - vision impairment, color blindness, and even the difference in color between monitors. Even if something appears to be legible enough on your computer, doesn't mean everyone will be able to read it. I recommend using a color contrast checker. I like <a href="https://coolors.co/contrast-checker/0e2239-b9d0e9">coolors contrast checker</a> and this one from <a href="https://contrast-ratio.com/">contrast-ratio.com.</a> Neither of these to your liking? There's plenty of other color checkers online.</p>
+                    </section>
+                    <section>
+                        <h3>Conveying Information with Color</h3>
+                        <p>Even if you have good contrast, there may still be color blind or vision impaired users that are unable to perceive color differences. Because of this, you should avoid using only color to convey information. To make a link or other element appear distinct in your page, use additional visual cues beside color, such as underlining text or using a bold font. </p>
+                    </section>
+                </section>
+                <section id="fonts">
+                    <h2 class="anchor">Font Tips<span id="fontAnchor"></span></h2>
+                    <section>
+                        <h3>Font Size</h3>
+                        <p>Something to keep in mind when designing your website is font choice and font size. This can be subjective, especially since font sizes can vary, but a good rule of thumb is to keep your body text at least 16px, to ensure legibility. <a href="https://www.editorx.com/shaping-design/article/font-size#:~:text=Optimal%20font%20sizes%20for%20desktop&text=Body%20text%20%2D%20Font%20sizes%20should,can%20be%20pleasant%20to%20read.">Editorx has some good information in this article</a> if you'd like to learn more about this topic.</p>
+                    </section>
+                    <section>
+                        <h3>Fonts Styles</h3>
+                        <p>In addition to font size, you should also keep font styles in mind. Fonts are categorized by different styles - bold, lightweight, sans-serif, script, and so on. However, some fonts can be difficult to read, especially for those with vision impairments. For example, those with dyslexia may have difficulty reading script and black-letter fonts, since the extra detail in them makes it harder to differentiate certain letters. In addition, not everyone will know how to read a cursive font. This <a href="https://www.bdadyslexia.org.uk/advice/employers/creating-a-dyslexia-friendly-workplace/dyslexia-friendly-style-guide#:~:text=Use%20sans%20serif%20fonts%2C%20such,may%20request%20a%20larger%20font.">style guide from the British Dyslexia Association</a> is a good resource if you'd like to learn more. Generally, using sans-serif fonts is a greate place to start, as their simplicity makes them easy to read. Use your common sense as well - a tiny, cursive font can be very pretty, but also very hard for users to read.</p>
+                    </section>
+                    <section>
+                        <h3>Use text, not images of text</h3>
+                        <p>You may see people on social media post pictures of text, to help avoid maximum word counts on posts. However, you shouldn't do this on websites - especially for large amounts of text. Typically, an image logo is fine if used sparingly. However, you should avoid posting images of text just for typography. This prevents browsers and screen readers from being able to read the text. It also prevents accessibility extensions from adjusting font size or color for those who need who need help to read web content. Using an image of text may also cause issues if your images load incorrectly or not at all. Plain text is the best way to go to make sure your content is accessible</p>
+                    </section>
+                </section>
+                <section id="layout">
+                    <h2 class="anchor">Layout<span id="layoutAnchor"></span></h2>
+                    <section>
+                        <h3>Designing for multiple viewports</h3>
+                        <p>Something important to keep in mind is that your website should be accessible on as many devices as possible. This means you shouldn't design just for mobile, or just for desktop, but for all devices. Most developers recommend you design mobile-first, since most web users come from mobile devices (such as smartphones). When designing, keep in mind that smartphones can be as small as 320px wide. This can be a lot smaller than it sounds. </p>
+                        <div class="container">
+                            <img src="content/viewports.jpg" alt="A macbook, ipad, and iphone sitting next to eachother">
+                            <p>Image courtesy of <a href="https://www.pexels.com/@pixabay/">Pixabay</a></p>
+                        </div>
+                        <p>As you can see, a mobile device and desktop devices have completely different orientations, so keep that in mind when designing your website</p>
+                        <p>When designing for mobile, also keep in mind that most users will not have a mouse or stylus to hover over elements. If you use hover states to convey information on desktop (such as if an element is a link), you will need to adjust that for mobile such as adding an underline or other visual cue.</p>
+                        <p>In addition to being unable to hover, users won't have a mouse to point and click on mobile. To ensure your users can use buttons on your webpages, try and make elements at least 48px in width or height. You can do this by increasing the width and height of an element, or by adding invisible padding to increase the clickable area without needing to change an icon's size.</p>
+                    </section>
+                    <section>
+                        <h3>Group Content</h3>
+                        <p>When writing content, group related content and add appropriate headings. This will help users quickly skim a page to find information. For example, a user on wikipedia may only want to read about a president's time in office, not their time as a politician before that. If we didn't group content and use headings, navigating large web pages would be extremely difficult.</p>
+                    </section>
+                    <section>
+                        <h3>Navigating Web Pages with a Keyboard</h3>
+                        <p>Some users of the web are unable to use a mouse due to physical disability. Because of this, many websites are designed so users may navigate it with the “tab” and “arrow” keys on a keyboard. You should make sure you can navigate your webpage using only these - otherwise, you may be unintentionally preventing users from using your website. If you do not have one already, you should add a 'focus' state to interactable elements on your page as well. This helps users know where they are on a webpage when navigating on a keyboard. There's more information on this topic available in <a href="https://digital.com/how-to-create-a-website/how-to-make-your-website-accessible-for-keyboard-only-visitors/">this article from digital.com.</a></p>
+                    </section>
+                </section>
+                <section id="markup">
+                    <h2 class="anchor">HTML and Content Markup<span id="markupAnchor"></span></h2>
+                    <section>
+                        <h3>Semantic HTML</h3>
+                        <p>If you write your own website's HTML, you may want to review it to make sure it's semantic. By semantic, I mean it should make sense - for example, section off the header, main, and footer from each other. Use sections instead of divs, and use tags such as article and aside where appropriate. Using a div won't tell others who view your code anything about your webpage's content, since divs can be used for anything from holding an image to holding main content. However, using sections appropriately does tell others who view your code that everything within those tags is connected under the same subject. Likewise, sections hold main content typically, while an article and aside hold less relevant content. Using semantic tags can also help screen readers parse your page, and provide the most important content to users first. You can learn more about semantic HTML tags and where to use them <a href="https://www.w3schools.com/html/html5_semantic_elements.asp">at w3schools.</a></p>
+                    </section>
+                    <section>
+                        <h3>Clear and Accurate Error Handling</h3>
+                        <p>Does your website have a form of some sort? This can be a form to sign up for an account, a form to join an emailing list, or a payment form. If your website does have one, I recommend making sure your form provides clear instructions when there is an error in user input. Typically, you want to show errors on the section that caused it - for example, showing the error message for a phone number input right underneath the input field, rather than at the top of the whole form. Also use descriptive error messages - “Please enter your phone number as (XXX) XXX-XXXX” is much more useful than “There was an error in your phone number input.”</p>
+                        <div class="container" id="handling">
+                            <p>Here are two examples of error handling!</p>
+                            <form>
+                                <label for="goodExample">Enter something here</label>
+                                <input type="text" id="goodExample" name="goodExample">
+                                <input type="submit" id="goodSubmit">
+                            </form>
+                            <form>
+                                <span id="badOutput"></span>
+                                <label for="badExample">Enter something here</label>
+                                <input type="text" id="badExample" name="badExample">
+                                <input type="submit" id="badSubmit">
+                            </form>
+                            <p>This applies to more than just error handling on forms- when conveying information about user interactions, make sure the information is easy for the user to find and read!</p>
+                        </div>
+                    </section>
+                    <section>
+                        <h3>Landmarks and Jump Links</h3>
+                        <p>If you have a large webpage, you should provide jump links and landmarks on your webpage. A jump link allows users to automatically jump to your website's main content, without having to go though your header information. This may not seem like much to a visual user, but a user on a screen reader may wish to go straight to the main content of your page, instead of listening to a list of pages they can navigate to on your website. Likewise, landmarks let users quickly navigate between different sections of the main content. You can learn more about making jump links <a href="https://www.w3docs.com/snippets/html/how-to-create-an-anchor-link-to-jump-to-a-specific-part-of-a-page.html">from w3docs.</a></p>
+                    </section>
+                    <section>
+                        <h3>Focus and Hover States</h3>
+                        <p>Some users of the web are unable to use a mouse due to physical disability. Because of this, many websites are able to be navigated with the “tab” and “arrow” keys on a keyboard. When a user lands on an interactable element (such as a form field), that field should have a corresponding “hover” state. This is specified in your styles, and helps users find where they are on a page and fill out forms and other elements. You can <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:focus">read the documentation of focus styles on the mozilla docs.</a></p>
+                        <p>Like a focus state, a hover state helps a user know an element is interactable. You've probably seen hover states before if you've used a computer, most links and buttons have one. You can <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:hover">read more about them on the mozilla docs.</a></p>
+                        <div class="container">
+                            <button>Interact with me! <br> (hover, click, etc!)</button>
+                        </div>
+                    </section>
+                </section>
+                <section id="extra">
+                    <h2 class="anchor">Additional Resources<span id="extraAnchor"></span></h2>
+                    <ul>
+                        <li>Web accessibility guidelines (such as the ones I've written here) are all typically derived from the Web Content Accessibility Guidelines (WCAG) international standard. The document is a bit lengthy, but goes in depth on web accessibility guidelines. They're releasing a new draft in December of this year, so I recommend keeping an eye out for any changes in that. You can <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">read the whole thing at w3.org.</a></li>
+                        <li>W3.org is a favorite resource of mine. I also recommend their articles for <a href="https://www.w3.org/WAI/tips/writing/">writing web content</a> and ensuring that <a href="https://www.w3.org/WAI/tips/designing/#ensure-that-interactive-elements-are-easy-to-identify">interactable content is easy to identify</a></li>
+                        <li><a href="https://www.washington.edu/accesscomputing/30-web-accessibility-tips">This webpage from washington state university</a> has some good tips for accessible web design</li>
+                        <li><a href="https://webaim.org/blog/10-easy-accessibility-tips/">This article from webaim</a> also has good tips for designing your website!</li>
+                        <li>Does your website have custom elements? This could be an &ltli&gt or &ltp&gt element that functions as a check box, or another piece of custom functionality created using javascript. If so, I recommend looking into ARIA. It is the Web Accessibility Initiative's Accessible Rich Internet Applications specification - which allows you to specify html elements with custom functionality to be interactable with screen readers. You can <a href="https://web.dev/semantics-aria/">read more here on web.dev.</a></li>
+                    </ul>
+                </section>
+            </div>
+        </main>
+        <footer>
+            <p>Created by Molly Shebek</p>
+            <p>All content belongs to their rightful owners</p>
+            <p>This website was created for educational purpouses only</p>
+        </footer>
+    </body>
+</html>
