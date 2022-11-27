@@ -359,7 +359,7 @@ video {
 #abtAnchor, #imgAnchor,  #colorAnchor, #fontAnchor,  #layoutAnchor,  #markupAnchor,  #extraAnchor{
     position: absolute;
     left: 0;
-    top: -110px;
+    top: -125px;
     height: 0;
     width: 0;
 }
