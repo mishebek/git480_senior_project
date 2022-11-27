@@ -7,7 +7,7 @@ $(function() {
 
   $(window).on('resize', function() {
     if($(window).width() < 1600){
-      $('.navbtn').binf('touchstart mousedown', function(){
+      $('.navbtn').bind('touchstart mousedown', function(){
         $(this).toggleClass('open');
         $('nav').toggleClass('openMenu');
       });
@@ -17,7 +17,7 @@ $(function() {
           $('nav').toggleClass('openMenu');
       });
     };
-    
+
     if($(window).width() >= 1600){
       $('.navbtn, nav a').unbind();
     }
