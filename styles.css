@@ -369,7 +369,7 @@ footer {
     text-align: center;
     padding: 10px;
     border-top: 1px solid var(--red);
-    width: calc(100% - 10px);
+    width: calc(100% - 20px);
 }
 
 .err {
