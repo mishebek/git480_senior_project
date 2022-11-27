@@ -7,26 +7,17 @@ $(function() {
 
   $(window).on('resize', function() {
     if($(window).width() < 1600){
-      $('.navbtn').on('click', function(){
+      $('.navbtn').binf('touchstart mousedown', function(){
         $(this).toggleClass('open');
         $('nav').toggleClass('openMenu');
       });
 
-      $('nav a').on('click', function(){
-          $('.navbtn').toggleClass('open');
-          $('nav').toggleClass('openMenu');
-      });
-
-      $('.navbtn').on('touchstart', function(){
-        $(this).toggleClass('open');
-        $('nav').toggleClass('openMenu');
-      });
-
-      $('nav a').on('touchstart', function(){
+      $('nav a').bind('touchstart mousedown', function(){
           $('.navbtn').toggleClass('open');
           $('nav').toggleClass('openMenu');
       });
     };
+    
     if($(window).width() >= 1600){
       $('.navbtn, nav a').unbind();
     }
