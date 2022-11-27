@@ -16,6 +16,16 @@ $(function() {
           $('.navbtn').toggleClass('open');
           $('nav').toggleClass('openMenu');
       });
+
+      $('.navbtn').on('touchstart', function(){
+        $(this).toggleClass('open');
+        $('nav').toggleClass('openMenu');
+      });
+
+      $('nav a').on('touchstart', function(){
+          $('.navbtn').toggleClass('open');
+          $('nav').toggleClass('openMenu');
+      });
     };
     if($(window).width() >= 1600){
       $('.navbtn, nav a').unbind();
