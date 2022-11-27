@@ -84,6 +84,7 @@ h1 a {
 
 h1 a:hover {
     background: -webkit-linear-gradient(var(--magenta), var(--purple));
+    background: linear-gradient(var(--magenta), var(--purple));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; 
@@ -368,7 +369,7 @@ footer {
     text-align: center;
     padding: 10px;
     border-top: 1px solid var(--red);
-    width: calc(100%-10px);;
+    width: calc(100% - 10px);
 }
 
 .err {
